@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@700&family=Urbanist:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&family=Urbanist:wght@500&display=swap');
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  scrollbar-width: none;            
+  -ms-overflow-style: none;         
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;                   
+}
+
