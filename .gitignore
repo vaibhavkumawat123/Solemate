@@ -1,0 +1,6 @@
+# ENV files
+Client/.env
+Server/.env
+
+# Firebase config
+Client/src/firebase.js
