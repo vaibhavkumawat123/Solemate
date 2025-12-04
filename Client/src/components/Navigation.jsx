@@ -21,6 +21,7 @@ import { createPortal } from "react-dom";
 import { toast } from "@/hooks/use-toast";
 
 const Navigation = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const cartCount = useSelector((state) => state.cart.cartItems.length);
@@ -271,7 +272,7 @@ focus:outline-none focus:ring-0
                       {/* === USER AVATAR SHOW WITH FALLBACK === */}
                       {user.avatar ? (
                         <img
-                          src={`http://localhost:5000${user.avatar}`}
+                          src={`${API_URL}${user.avatar}`}
                           alt={user.name}
                           className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-[#ddb445]/70 transition-all duration-500 group-hover:scale-105"
                         />
@@ -564,7 +565,7 @@ focus:outline-none focus:ring-0`}
                       {/* Avatar */}
                       {user.avatar ? (
                         <img
-                          src={`http://localhost:5000${user.avatar}`}
+                          src={`${API_URL}${user.avatar}`}
                           alt={user.name}
                           className="w-10 h-10 rounded-full object-cover border border-yellow-600"
                         />
