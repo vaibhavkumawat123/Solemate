@@ -2,9 +2,6 @@
 Client/.env
 Server/.env
 
-# Firebase config file 
-Client/src/firebase.js
-
 # Node modules
 node_modules/
 
