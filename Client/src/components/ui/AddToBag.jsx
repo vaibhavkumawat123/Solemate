@@ -36,9 +36,7 @@ const AddToBag = ({ product, color, size }) => {
     Number(color?.items_left) === 0 ||
     color?.is_in_inventory === false ||
     Number(product?.items_left) === 0 ||
-    product?.is_in_inventory === false ||
-    !color ||
-    !size;
+    product?.is_in_inventory === false;
 
   const uniqueId = `${product._id}-${sizeString}-${colorString}`;
 
