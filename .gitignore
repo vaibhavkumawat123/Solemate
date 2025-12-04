@@ -2,5 +2,20 @@
 Client/.env
 Server/.env
 
-# Firebase config
+# Firebase config file 
 Client/src/firebase.js
+
+# Node modules
+node_modules/
+
+# Build outputs
+Client/dist/
+Server/dist/
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Cache
+.vite/
+.env.local
