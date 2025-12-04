@@ -27,7 +27,7 @@ const Footer = () => {
     console.log("Subscribed with:", email);
     setSubscribed(true);
     e.target.reset();
-    setTimeout(() => setSubscribed(false), 3000); // 3 sec message
+    setTimeout(() => setSubscribed(false), 3000); 
   };
 
   return (

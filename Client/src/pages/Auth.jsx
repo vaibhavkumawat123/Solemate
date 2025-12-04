@@ -76,8 +76,8 @@ const Auth = () => {
 
     if (!minLength) return "Password must be at least 8 characters long.";
     if (!startsWithCapital) return "Password must start with a capital letter.";
-    // if (!hasSpecialChar)
-    //   return "Password must contain at least one special character or symbol.";
+    if (!hasSpecialChar)
+      return "Password must contain at least one special character or symbol.";
 
     return null;
   };

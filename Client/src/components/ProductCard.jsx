@@ -103,8 +103,10 @@ const ProductCard = ({ product, onToggleLike, className, style }) => {
     if (!product?._id) return;
     setReviewsLoading(true);
     try {
+      const API_URL = import.meta.env.VITE_API_URL;
+
       const res = await axios.get(
-        `http://localhost:5000/api/reviews/product/${product._id}?page=${page}&limit=5`
+        `${API_URL}/api/reviews/product/${product._id}?page=${page}&limit=5`
       );
       setReviews(
         page === 1

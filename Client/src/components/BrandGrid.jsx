@@ -8,10 +8,11 @@ const BrandGrid = () => {
   const location = useLocation();
 
   const brand = new URLSearchParams(location.search).get("name");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products?brands=${brand}`)
+      .get(`${API_URL}/api/products?brands=${brand}`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Error fetching brand products:", err));
   }, [brand]);

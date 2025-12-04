@@ -52,7 +52,9 @@ const SearchResults = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products").then((res) => {
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    axios.get(`${API_URL}/api/products`).then((res) => {
       setAllProducts(res.data);
     });
   }, []);

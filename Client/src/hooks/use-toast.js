@@ -1,4 +1,3 @@
-// ✅ Updated version for JSX (JavaScript) instead of TypeScript
 import React, { useEffect, useState } from "react"
 
 const TOAST_LIMIT = 1

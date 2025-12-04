@@ -58,6 +58,7 @@ export default function ProductDetails() {
   const [selectedMedia, setSelectedMedia] = useState(null);
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const loggedInUserId = storedUser?.user?._id;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
@@ -89,14 +90,9 @@ export default function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       if (!productId) return;
-      const { data } = await axios.get(
-        `http://localhost:5000/api/products/${productId}`
-      );
-      setProduct(data);
+
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/products/${productId}`
-        );
+        const res = await axios.get(`${API_URL}/api/products/${productId}`);
         setProduct(res.data);
       } catch (err) {
         setError("Failed to fetch product");
@@ -104,6 +100,7 @@ export default function ProductDetails() {
         setLoading(false);
       }
     };
+
     fetchProduct();
   }, [productId]);
 
@@ -158,7 +155,7 @@ export default function ProductDetails() {
     try {
       if (!loggedInUserId) return;
 
-      await axios.delete(`http://localhost:5000/api/reviews/${reviewId}`, {
+      await axios.delete(`${API_URL}/api/reviews/${reviewId}`, {
         data: { userId: loggedInUserId },
       });
 
@@ -853,8 +850,8 @@ export default function ProductDetails() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{
-            duration: 0.8, 
-            ease: [0.25, 0.1, 0.25, 1], 
+            duration: 0.8,
+            ease: [0.25, 0.1, 0.25, 1],
           }}
           className="w-full"
         >

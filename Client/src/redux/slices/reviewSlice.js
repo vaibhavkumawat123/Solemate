@@ -5,9 +5,12 @@ export const fetchProductReviews = createAsyncThunk(
   "reviews/fetchProductReviews",
   async ({ productId, page = 1 }, thunkAPI) => {
     try {
+      const API_URL = import.meta.env.VITE_API_URL;
+
       const res = await axios.get(
-        `http://localhost:5000/api/reviews/product/${productId}?page=${page}&limit=5`
+        `${API_URL}/api/reviews/product/${productId}?page=${page}&limit=5`
       );
+
       return { reviews: res.data.reviews, hasMore: res.data.hasMore };
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response?.data || err.message);

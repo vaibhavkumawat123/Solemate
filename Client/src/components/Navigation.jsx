@@ -64,7 +64,9 @@ const Navigation = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);

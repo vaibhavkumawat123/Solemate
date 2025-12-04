@@ -4,7 +4,7 @@ import { loadCartFromStorage } from "./cartSlice";
 import { clearToasts, loadToastsFromStorage } from "./toastSlice";
 import { clearWishlist, loadWishlistFromStorage } from "./wishlistSlice";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 
 const storedUser = JSON.parse(localStorage.getItem("user"));
 
@@ -41,15 +41,14 @@ export const googleLogin = createAsyncThunk(
   "auth/googleLogin",
   async (googleUser, { rejectWithValue }) => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/google-login",
-        {
-          name: googleUser.name,
-          email: googleUser.email,
-          googleId: googleUser.googleId,
-          avatar: googleUser.avatar,
-        }
-      );
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const res = await axios.post(`${API_URL}/api/auth/google-login`, {
+        name: googleUser.name,
+        email: googleUser.email,
+        googleId: googleUser.googleId,
+        avatar: googleUser.avatar,
+      });
 
       localStorage.setItem(
         "user",

@@ -33,7 +33,7 @@ const EditProfile = () => {
     bio: user.bio || "",
   });
 
-  const BASE_URL = "http://localhost:5000";
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const EditProfile = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setAvatarFile(file); // FIXED
+    setAvatarFile(file);
 
     const reader = new FileReader();
     reader.onloadend = () => {

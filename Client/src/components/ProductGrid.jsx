@@ -29,12 +29,15 @@ const ProductGrid = ({
       return;
     }
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     axios
-      .get("http://localhost:5000/api/products")
+      .get(`${API_URL}/api/products`)
       .then((res) => {
         setProducts(res.data);
         setFiltered(res.data);
       })
+
       .catch((err) => {
         console.error("Error fetching products:", err);
         setError("Something went wrong while fetching products.");
