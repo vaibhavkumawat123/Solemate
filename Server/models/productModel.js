@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const embeddedReviewSchema = new mongoose.Schema(
   {
@@ -37,12 +38,6 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      default: function () {
-        return this.name
-          .toLowerCase()
-          .replace(/\s+/g, "-")
-          .replace(/[^\w\-]+/g, "");
-      },
     },
 
     reviews: [embeddedReviewSchema],
@@ -62,11 +57,25 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-productSchema.pre("save", function (next) {
-  if (this.items_left == null) {
-    this.items_left = 0;
+productSchema.pre("save", async function (next) {
+  if (!this.isModified("name")) return next();
+
+  let baseSlug = slugify(this.name, {
+    lower: true,
+    strict: true,
+  });
+
+  let slug = baseSlug;
+  let counter = 1;
+
+  const Product = mongoose.model("Product");
+
+  while (await Product.findOne({ slug })) {
+    slug = `${baseSlug}-${counter}`;
+    counter++;
   }
-  this.is_in_inventory = this.items_left > 0;
+
+  this.slug = slug;
   next();
 });
 

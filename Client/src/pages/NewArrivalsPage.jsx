@@ -8,9 +8,9 @@ const NewArrivalsPage = () => {
       <Navigation />
       <div className="pt-16">
         <ProductGrid
-          brands={["Nike", "Puma", "Vans", "Converse", "New Balance", "Adidas"]}
-          title="All Top Brands"
-          description="Top shoe brands handpicked just for you"
+          filterNewArrival={true}
+          title="New Arrivals"
+          description="Latest arrivals picked just for you"
         />
       </div>
       <Footer />

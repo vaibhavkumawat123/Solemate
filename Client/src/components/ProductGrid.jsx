@@ -10,6 +10,8 @@ const ProductGrid = ({
   gender,
   description,
   productsOverride,
+  filterBestSeller,
+  filterNewArrival,
 }) => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -102,6 +104,14 @@ const ProductGrid = ({
       );
     }
 
+    if (filterBestSeller) {
+      filteredProducts = filteredProducts.filter((p) => p.best_seller === 1);
+    }
+
+    if (filterNewArrival) {
+      filteredProducts = filteredProducts.filter((p) => p.new_arrival === true);
+    }
+
     setFiltered(filteredProducts);
   }, [
     brand,
@@ -110,6 +120,8 @@ const ProductGrid = ({
     gender,
     products,
     productsOverride,
+    filterBestSeller,
+    filterNewArrival,
   ]);
 
   const containerVariants = {

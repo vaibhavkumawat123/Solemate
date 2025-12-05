@@ -155,6 +155,18 @@ const ProductCard = ({ product, onToggleLike, className, style }) => {
 
         {/* badges */}
         <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+          {product?.new_arrival && (
+            <span className="bg-gradient-to-r from-green-400 to-lime-500 text-black text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide shadow-md">
+              New Arrival
+            </span>
+          )}
+
+          {product?.best_seller ? (
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide shadow-md">
+              Best Seller
+            </span>
+          ) : null}
+
           {product?.isNew && (
             <span className="bg-gradient-to-r from-green-400 to-lime-500 text-black text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wide shadow-md">
               New
