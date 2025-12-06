@@ -107,13 +107,13 @@ const SummaryArea = () => {
 
         {/* Poster Image */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 12 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.4, ease: "easeOut" },
+            scale: 1.03,
+            transition: { duration: 0.3, ease: "easeOut" },
           }}
           className="w-full sm:w-[18rem] md:w-[24rem] lg:w-[28rem] relative"
         >
