@@ -63,20 +63,23 @@ const SummaryArea = () => {
             {/* Shop Button */}
             <button className="group relative inline-flex h-14 sm:h-16 md:h-18 items-center justify-center overflow-hidden rounded-full font-semibold shadow-lg cursor-pointer select-none w-full sm:w-auto">
               {/* First Layer (default state) */}
-              <div className="inline-flex h-14 sm:h-16 md:h-18 translate-x-0 items-center justify-center 
+              <div
+                className="inline-flex h-14 sm:h-16 md:h-18 translate-x-0 items-center justify-center 
     bg-gradient-to-r from-[#2e2a20] to-[#d4a017] px-6 sm:px-10 py-3 sm:py-4 
-    text-base sm:text-lg md:text-xl text-white transition group-hover:-translate-x-[150%]">
+    text-base sm:text-lg md:text-xl text-white transition group-hover:-translate-x-[150%]"
+              >
                 Shop the Look
               </div>
 
               {/* Second Layer (hover state with black bg & white text) */}
-              <div className="absolute inline-flex h-14 sm:h-16 md:h-18 w-full translate-x-[100%] items-center justify-center 
+              <div
+                className="absolute inline-flex h-14 sm:h-16 md:h-18 w-full translate-x-[100%] items-center justify-center 
     bg-black px-6 sm:px-10 py-3 sm:py-4 
-    text-base sm:text-lg md:text-xl text-white transition duration-300 group-hover:translate-x-0">
+    text-base sm:text-lg md:text-xl text-white transition duration-300 group-hover:translate-x-0"
+              >
                 Shop the Look
               </div>
             </button>
-
 
             {/* Play Button with Rotating Border */}
             <div className="relative flex items-center justify-center">
@@ -104,13 +107,13 @@ const SummaryArea = () => {
 
         {/* Poster Image */}
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           viewport={{ once: true }}
           whileHover={{
             scale: 1.05,
-            transition: { duration: 0.6, ease: "easeOut" },
+            transition: { duration: 0.4, ease: "easeOut" },
           }}
           className="w-full sm:w-[18rem] md:w-[24rem] lg:w-[28rem] relative"
         >
