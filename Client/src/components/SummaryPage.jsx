@@ -71,7 +71,7 @@ const SummaryArea = () => {
                 Shop the Look
               </div>
 
-              {/* Second Layer (hover state with black bg & white text) */}
+              {/* Second Layer */}
               <div
                 className="absolute inline-flex h-14 sm:h-16 md:h-18 w-full translate-x-[100%] items-center justify-center 
     bg-black px-6 sm:px-10 py-3 sm:py-4 

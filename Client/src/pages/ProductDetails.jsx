@@ -284,10 +284,6 @@ export default function ProductDetails() {
       : null
   );
 
-  if (!product) {
-    return <div>Loading product details...</div>;
-  }
-
   const sizes = [
     { brand: "4", uk: "1.5", eu: "38", us: "4", cm: "8.3" },
     { brand: "4.5", uk: "2", eu: "39", us: "4.5", cm: "8.5" },
@@ -302,35 +298,8 @@ export default function ProductDetails() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100 p-4 md:p-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Left Section Skeleton */}
-          <div className="flex flex-col gap-4">
-            <div className="flex md:flex-col gap-2 md:gap-3">
-              <Skeleton className="h-12 w-12 md:h-20 md:w-20" />{" "}
-              {/* Thumbnails */}
-              <Skeleton className="h-[400px] md:h-[600px] w-full rounded-2xl" />{" "}
-              {/* Main Image */}
-            </div>
-          </div>
-
-          {/* Right Section Skeleton */}
-          <div className="flex flex-col gap-4">
-            <Skeleton className="h-6 w-32" /> {/* Brand */}
-            <Skeleton className="h-6 w-40" /> {/* Gender */}
-            <Skeleton className="h-8 w-60" /> {/* Product Name */}
-            <Skeleton className="h-8 w-40 mt-2" /> {/* Price */}
-            <div className="flex flex-col sm:flex-row gap-2 md:gap-4 mt-4">
-              <Skeleton className="h-10 w-full sm:w-1/2 rounded-xl" />{" "}
-              {/* Add to Bag */}
-              <Skeleton className="h-10 w-full sm:w-1/2 rounded-xl" />{" "}
-              {/* Wishlist */}
-            </div>
-            <Skeleton className="h-6 w-1/2 mt-4" /> {/* Sizes */}
-            <Skeleton className="h-4 w-full mt-2" /> {/* Description */}
-            <Skeleton className="h-10 w-full mt-4" /> {/* Pincode */}
-          </div>
-        </div>
+      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+        <div className="w-16 h-16 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }

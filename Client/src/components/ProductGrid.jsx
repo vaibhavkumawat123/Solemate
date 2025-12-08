@@ -19,6 +19,7 @@ const ProductGrid = ({
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("query");
+  const [loading, setLoading] = useState(true);
 
   const selectedBrandFromURL = searchParams.get("brand");
   const selectedCategory = searchParams.get("category");
@@ -38,11 +39,13 @@ const ProductGrid = ({
       .then((res) => {
         setProducts(res.data);
         setFiltered(res.data);
+        setLoading(false);
       })
 
       .catch((err) => {
         console.error("Error fetching products:", err);
         setError("Something went wrong while fetching products.");
+        setLoading(false);
       });
   }, [productsOverride]);
 
@@ -167,6 +170,14 @@ const ProductGrid = ({
       transition: { duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.5 },
     },
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-40">
+        <div className="w-16 h-16 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-300 via-zinc-100 to-gray-300">
